@@ -113,7 +113,6 @@ const resolvers = {
   Query: {
     allCapsules: async (root, {}, { dataSources }) => {
       const capsules = await dataSources.spacexAPI.getCapsules();
-      console.log('capsules', capsules);
       return capsules;
     },
     oneCapsule: async (root, { capsule_serial }, { dataSources }) => {
