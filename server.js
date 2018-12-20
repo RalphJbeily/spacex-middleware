@@ -16,6 +16,10 @@ const server = new ApolloServer({
 
 server.applyMiddleware({ app });
 
+app.get('/', function(req, res) {
+  res.send({ status: 'listening' });
+});
+
 app.listen(PORT || 4000, () =>
   console.log(
     `🚀 Server is listening at http://localhost:${PORT || 4000}${
