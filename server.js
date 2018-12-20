@@ -16,8 +16,10 @@ const server = new ApolloServer({
 
 server.applyMiddleware({ app });
 
-app.listen({ port: PORT }, () =>
+app.listen(PORT || 4000, () =>
   console.log(
-    `🚀 Server is listening at http://localhost:${PORT}${server.graphqlPath}`,
+    `🚀 Server is listening at http://localhost:${PORT || 4000}${
+      server.graphqlPath
+    }`,
   ),
 );

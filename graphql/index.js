@@ -129,13 +129,11 @@ const resolvers = {
     },
     allDragons: async (root, {}, { dataSources }) => {
       const dragons = await dataSources.spacexAPI.getDragons();
-      const { id, name } = dragons[0];
       return dragons;
     },
     oneDragon: async (root, { id }, { dataSources }) => {
       const dragon = await dataSources.spacexAPI.getDragon(id);
-      const { name, type } = dragon;
-      return { id, name, type };
+      return dragon;
     },
     allHistories: async (root, {}, { dataSources }) => {
       const histories = await dataSources.spacexAPI.getHistories();
@@ -147,7 +145,7 @@ const resolvers = {
     },
     allLandPads: async (root, {}, { dataSources }) => {
       const landPads = await dataSources.spacexAPI.getLandingPads();
-      return history;
+      return landPads;
     },
     oneLandPad: async (root, { id }, { dataSources }) => {
       const landPad = await dataSources.spacexAPI.getLandingPad(id);
